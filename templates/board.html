@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="display:inline-block">☠️ Fake PTT&nbsp;</h1>
+<h2 style="display:inline-block;vertical-align:top"><span class="label label-info">{{ board_name }}</span></h2><br>
+<a href="/">
+  <button type="button" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回
+  </button>
+</a>
+<div class="list-group">
+  {% for title in titles %}
+    <a href="/posts/{{ board_name }}/{{ loop.index0 }}" class="list-group-item">{{ title }}</a>
+  {% endfor %}
+</div>
+{% endblock %}

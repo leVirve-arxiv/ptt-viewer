@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>☠️ Fake PTT</h1>
+<div class="list-group">
+  {% for board in boards %}
+    <a href="/posts/{{ board }}" class="list-group-item">{{ board }}</a>
+  {% endfor %}
+</div>
+{% endblock %}

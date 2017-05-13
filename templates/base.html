@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+  {% block head %}
+  <title>Fake PTT</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  {% endblock %}
+</head>
+
+<body>
+  <div id="content" class="jumbotron">
+    <div class="container">
+    {% block content %}{% endblock %}
+    {% block footer %} &copy; Copyright 2017 by <a href="https://github.com/leVirve-arxiv/ptt-viewer">salas, meego, shunhuaiyao</a>. {% endblock %}</div>
+    </div>
+  </div>
+</body>
+
+</html>
