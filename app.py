@@ -13,14 +13,12 @@ boards = [os.path.basename(fn)[:-5] for fn in glob.glob('data/*.json')]
 def load_json(board_name):
     with open('data/%s.json' % board_name, encoding='utf-8') as f:
         data = json.load(f)
-    print('Load', board_name)
     return data
 
 
 def dump_json(board_name):
     with open('data/%s.json' % board_name, 'w', encoding='utf-8') as f:
         json.dump(datafile, f)
-    print('Dump', board_name)
 
 
 @app.route('/')
@@ -67,4 +65,4 @@ def evaluate(board_name, data_id):
 if __name__ == "__main__":
     global current_loaded
     current_loaded = None
-    app.run(debug=True)
+    app.run()
