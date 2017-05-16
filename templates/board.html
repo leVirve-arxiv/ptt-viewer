@@ -10,7 +10,9 @@
 </a>
 <div class="list-group">
   {% for title in titles %}
-    <a href="/posts/{{ board_name }}/{{ loop.index0 }}" class="list-group-item">{{ title }}</a>
+    <span>
+      <a href="/posts/{{ board_name }}/{{ loop.index0 }}" class="list-group-item"><span style="color:chocolate">{{ loop.index }}.</span> {{ title }}</a>
+    </span>
   {% endfor %}
 </div>
 {% endblock %}
