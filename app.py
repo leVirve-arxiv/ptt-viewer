@@ -3,7 +3,7 @@ import glob
 import json
 
 from flask import Flask
-from flask import request, render_template, jsonify
+from flask import request, render_template, redirect, url_for
 
 
 app = Flask(__name__)
@@ -34,7 +34,8 @@ def board(board_name):
     current_loaded = board_name
 
     titles = [data['title'] for data in datafile]
-    return render_template('board.html', board_name=board_name, titles=titles)
+    scored = [int(data.get('our_score', 0)) > 0 for data in datafile]
+    return render_template('board.html', board_name=board_name, titles=zip(titles, scored))
 
 
 @app.route('/posts/<string:board_name>/<int:data_id>')
@@ -59,7 +60,7 @@ def evaluate(board_name, data_id):
         real_data['comments'][cmt_id]['our_score'] = cmt_v
 
     dump_json(board_name)
-    return jsonify(datafile[data_id])
+    return redirect(url_for('board', board_name=board_name) + '#post_%d' % (data_id + 1))
 
 
 if __name__ == "__main__":
