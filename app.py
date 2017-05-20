@@ -33,8 +33,11 @@ def board(board_name):
         datafile = load_json(board_name)
     current_loaded = board_name
 
+    def parse_int(x):
+        return int(x) if x else 0
+
     titles = [data['title'] for data in datafile]
-    scored = [int(data.get('our_score', 0)) > 0 for data in datafile]
+    scored = [parse_int(data.get('our_score', '')) > 0 for data in datafile]
     return render_template('board.html', board_name=board_name, titles=zip(titles, scored))
 
 
